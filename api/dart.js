@@ -9,7 +9,8 @@ export default async function handler(req, res) {
   }
 
   const { corp_code = "00146038", page_no = "1", page_count = "10" } = req.query;
-  const apiKey = process.env.DART_API_KEY;
+
+  const apiKey = process.env.DART_API_KEY || "cb114fedbe1c07513f5656a6fcb9eca490b9df6b";
 
   if (!apiKey) {
     return res.status(500).json({ error: "DART API 키가 설정되지 않았습니다." });
